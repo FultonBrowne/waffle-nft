@@ -12,7 +12,7 @@ contract BasicNFT is ERC721URIStorage {
     uint public constant MAX_SUPPLY = 100;
     uint public constant PRICE = 0.01 ether;
 
-    constructor() ERC721("GameItem", "ITM") {}
+    constructor() ERC721("BasicNFT", "ITM") {}
 
     /* URGENT TODO: Make sure this code is safe */
     function uint2str(
@@ -61,7 +61,7 @@ contract BasicNFT is ERC721URIStorage {
     {
         uint256 newItemId = _tokenIds.current();
         require(newItemId <= MAX_SUPPLY, "Not enough NFTs left!");
-        require(msg.value >= PRICE, "Not enough ether to purchase NFTs.");
+        //require(msg.value >= PRICE, "Not enough ether to purchase NFTs.");
         _mint(minter, newItemId);
         string memory tokenURI = "lol";
         _setTokenURI(newItemId, concat(tokenURI, uint2str(newItemId)));
