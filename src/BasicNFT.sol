@@ -71,7 +71,7 @@ contract BasicNFT is ERC721URIStorage, Ownable {
         return newItemId;
     }
 
-      function withdrawMoney()  public onlyOwner {
+      function withdraw()  public onlyOwner {
         address payable to = payable(msg.sender);
         to.transfer(address(this).balance);
     }
